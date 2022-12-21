@@ -12,11 +12,11 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
    
    
-    $resultSql = pg_query($db, $sql);
+    $resultSql = $mysql->query($sql);
 
-    if(pg_num_rows($resultSql) >= 1){
+    if($mysql->num_rows($resultSql) >= 1){
        
-        $usuario = pg_fetch_assoc($resultSql);
+        $usuario = $mysql->fetch_assoc($resultSql);
         
        
         $verify = password_verify($pass, $usuario['pass']);

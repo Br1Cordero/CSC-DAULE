@@ -4,12 +4,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     //sql = "SELECT * FROM tb_departamento;";
     $sql = "SELECT id, nombre, imagen, email FROM tb_departamento where estado = 1;";
-    $result = pg_query($db, $sql);
+    $result = $mysql->query($sql);
 
     $json = array();
 
-    if(pg_affected_rows($result) >0){
-        while($row = pg_fetch_assoc($result)) {
+    if($mysql->affected_rows($result) >0){
+        while($row = $mysql->fetch_assoc($result)) {
             $json[]= array(
                 'id' => $row['id'],
                 'nombre' => $row['nombre'],

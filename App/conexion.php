@@ -1,10 +1,19 @@
 <?php
+$hostname = '216.238.107.175';
+$username = 'cscdaule_root';
+$password = '1nv1t4d0s$';
+$db = 'cscdaule_cscd1';
+//$db = 'cscdaule_cscd';
 
-$hosname = "localhost";
-$dbname ="cscd";
-$user ="postgres";
-$password = "27866";
-$port = "5432";
-$db = pg_connect("host=$hosname dbname=$dbname user=$user password=$password port=$port");
+$mysql = new mysqli(
+    $hostname,
+    $username,
+    $password,
+    $db);
 
-//$con = new pg();
+    if ($mysql->connect_error):
+        die ('Fallo la conexion error: '.$mysql->connect_error);
+    elseif(!$mysql->connect_error):
+        session_start();
+        
+    endif;

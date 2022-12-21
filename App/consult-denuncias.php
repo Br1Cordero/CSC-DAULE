@@ -7,12 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     $idDep = $_GET['idDep'];
 
     $sql =   "SELECT id, titulo, descripcion, imagen from tb_denuncia WHERE estado =1  and id_departamento = '".$idDep."';";
-    $result  = pg_query($db,$sql);
+    $result  = $mysql->query($sql);
 
     $json = array();
 
-    if(pg_affected_rows($result) >0){
-        while($row = pg_fetch_assoc($result)) {
+    if($mysql->affected_rows($result) >0){
+        while($row = $mysql->fetch_assoc($result)) {
             $json[]= array(
                 'id' => $row['id'],
                 'titulo' => $row['titulo'],

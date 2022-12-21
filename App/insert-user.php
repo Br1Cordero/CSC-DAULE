@@ -11,37 +11,29 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $Pass  = $_POST['pass'];   
     
         $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$Email."';";
-        $ressult = pg_query($db, $sql);
+        $ressult = $mysql->query($sql);
 
-        if(pg_num_rows($ressult)>= 1){
+        if($mysql->affected_rows($ressult) >= 1){
             echo "El usuario esta Registrado";
         }
-            $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$Email."';";
-            $ressult = pg_query($db, $sql);
-
-            if(pg_num_rows($ressult)>= 1){
-                echo "El usuario esta Registrado";
-            }else {
-
-                $password_segura = password_hash($Pass, PASSWORD_BCRYPT, ['cost' => 4]);
-                $CallSql = "CALL public.insertcliente(
-                    '$Name', 
-                    '$Surname',
-                    '$Ced',
-                    '$Email',
-                    '$Cel',
-                    '$password_segura'
-                );";
-
-                $resultCall = pg_query($db, $CallSql);
-
-                if($resultCall){
-                    echo "USUARIO REGISTRADO";
-                }
-            }
+        $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$Email."';";
+        $ressult = $mysql->query($sql);
         
+        if($mysql->num_rows($ressult)>= 1){
+            echo "El usuario esta Registrado";
+        }else {
+            $password_segura = password_hash($Pass, PASSWORD_BCRYPT, ['cost' => 4]);
+            $CallSql = "CALL public.insertcliente(
+                '$Name', 
+                '$Surname',
+                '$Ced',
+                '$Email',
+                '$Cel',
+                '$password_segura'
+            );";
+            $resultCall = $mysql->query($CallSql);
+            if($resultCall){
+                echo "USUARIO REGISTRADO";
+            }
+        }
 }
-
-/*
-  
-*/

@@ -11,9 +11,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
     $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
     $password_segura = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 4]);
-    $resultSql = pg_query($db, $sql);
+    $resultSql = $mysql->query($sql);
 
-    if(pg_num_rows($resultSql) <= 0){
+    if($mysql->affected_rows <= 0) {
       
         echo "Error: Credenciales no regitradas";
 
@@ -22,9 +22,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         
         $querry = "UPDATE tb_usuario set pass = '".$password_segura."' where usuario = '".$user."'";
-        $result= pg_query($db,$querry);
+        $result= $mysql->query($querry);
     
-        if (!pg_affected_rows($result) == 1){
+        if (!$mysql->affected_rows == 1){
         
                 echo "No se pudo actualzar la contraseña";
         }else {
@@ -89,7 +89,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $mail->send();
             
         } catch (Exception $e) {
-            echo "error: {$mail->ErrorInfo}";
+            //echo "error: {$mail->ErrorInfo}";
         }
 
         }
