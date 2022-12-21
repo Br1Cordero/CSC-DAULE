@@ -23,7 +23,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             echo "El usuario esta Registrado";
         }else {
             $password_segura = password_hash($Pass, PASSWORD_BCRYPT, ['cost' => 4]);
-            $CallSql = "CALL public.insertcliente(
+            $CallSql = "CALL InsertUsuario(
                 '$Name', 
                 '$Surname',
                 '$Ced',
