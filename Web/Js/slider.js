@@ -17,6 +17,7 @@ function Next (){
         slider.insertAdjacentElement('beforeend',sliderSectionFrist);
         slider.style.marginLeft = "-100%";
     }, 500);
+    console.log("SLIDER");
 }
 
 function Prev (){

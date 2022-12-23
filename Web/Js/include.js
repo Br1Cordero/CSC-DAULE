@@ -24,4 +24,3 @@ document.addEventListener("DOMContentLoaded", (e) => {
       .querySelectorAll("[data-include]")
       .forEach((el) => includeHTML(el, el.getAttribute("data-include")));
 });
-

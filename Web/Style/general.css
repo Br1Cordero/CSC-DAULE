@@ -8,9 +8,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+    font-family: "Times New Roman";
+    text-decoration: none;
+    --amarillo: rgba(249, 253, 5, 0.938);
     --footer: #202020;
-    font-family: "Times New Roman"
-
 }
 .paguina{
     display: flex;
@@ -19,20 +21,19 @@
     flex-wrap: wrap;
     flex-direction: column; 
 }
-
-
-
 .paguina__header{
     position: relative;
-    height: 15vh;
+    height: 20vh;
+    outline: 2px solid red;
+    margin-bottom: 20px;
 }
 
 .nav{
     width: 100vw;
-    height: 15vh;
+    height: max-content;
     position: fixed;
     display: block;
-    box-shadow: 2px 5px 8px rgba(10, 12, 0, .8);
+    box-shadow: 2px 5px 6px rgba(10, 12, 0, .8);
     background: #fff;
     z-index: 100;
 }
@@ -60,10 +61,12 @@ a{
 }
 
 .nav__inferior{
-    height: 46%;
+    height: 45px;
     display: flex;
-    background:rgba(249, 253, 5, 0.938);
+    background: var(--amarillo);
     align-items: center;
+    position: relative;
+    z-index: 200;
 }
 
 .nav__inferior-ul{
@@ -93,6 +96,7 @@ a{
         width: 100%;
         height: 100%;
         display: block;
+        z-index: 800;
     }
 
     .nav__responsive-container{
@@ -101,6 +105,8 @@ a{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        z-index: 100;
         
     }
 
@@ -115,6 +121,7 @@ a{
         transition: all 1s ease  ;
         position: relative;
         font-size: 40px;
+        z-index: 200;
     }
 
     .nav__responsive-button > i {
@@ -123,30 +130,35 @@ a{
     }
  
     .nav__li-container{
-        width: 0;
+        width: 40vw;
         height: auto;
-        background: #ccc;
+        background: var(--amarillo);
         position: absolute;
-        display: block;
-        margin: 0.5px;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
-        transition: all 2s ease-in-out;
         box-shadow: 2px 4px 5px rgba(10, 12, 0, .8);
-        
+        margin: 0.6px 0;
+        transition: 24s all;
+        z-index: -1;
     }
 
     .nav__responsive-li{
+        width: 100%;
         padding: 10px 2px;
-        border-bottom: .5px solid black;
+        position: relative;
+        text-align: center;
+        box-shadow: 1px 2px .5px rgba(0, 0, 0, .5);
     }
+    .nav__responsive-ul:hover  .nav__inferior-ul{
+        background: red;
+        overflow: none !important;
 
-    .nav__responsive-ul:hover > .nav__li-container {
-        width: 40vw;
     }
-}
-.paguina__main{
-    background-color: red;
-    height: 400vh;
+    .nav__responsive-ul:hover > .nav__li-container {
+        top: 0;
+        z-index: 5;
+    }
 }
 .paguina__footer{
     width: 100%;
@@ -164,6 +176,7 @@ a{
     padding: 10px;
     margin: 3px;
     text-align: center;
+
 }
 .column >  iframe{
     width: 100%;
@@ -192,4 +205,56 @@ a{
     align-self: flex-end;
     width: 100%;
     text-align: center;
+}
+
+
+
+
+.container__icon{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon__img {
+    width: 50%;
+    text-align: center;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon__img >label{
+    font-size: 15px;
+}
+
+.icon__img > a {
+    text-decoration: none;
+    display: block;
+    font-size: 3em;
+    margin-top: 2px;
+    color: #fff
+}
+
+.fa-youtube{
+    color: #f12;
+}
+
+.fa-facebook{
+    color: #3b5998;
+    border-radius: 50%;
+}
+
+.ri-instagram-fill{
+    background: radial-gradient( circle at 33% 100%, #fed373 4%, #f15245 30%,  #d92e7f 62%,#9b36b7 85%,#515ecf);
+    -webkit-background-clip: text;
+    background-clip: text; 
+    color: transparent;
+
+}
+.ri-whatsapp-fill{
+    color: #00bb2d;
 }
