@@ -1,8 +1,16 @@
 $(document).ready(function () {
     
     console.log('Loading...');
-    
-    $('#form').submit(function(e){
+
+    $(document).on("click", '#form', function(){
+        alert('Loading...');
+        $('#form').trigger('reset');
+
+      })
+});
+
+/*
+ $('#form').submit(function(e){
         e.preventDefault();
         const data = {
             name: $('#name').val(),
@@ -17,5 +25,5 @@ $(document).ready(function () {
             $('#form').trigger('reset');
         });
         console.log('Submit...');});
-});
 
+*/
