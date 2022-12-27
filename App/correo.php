@@ -1,33 +1,13 @@
 <?php
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+
     
     require_once './conexion.php';
 
-    $user = $_POST['user'];
-    $pass = $_POST['pass'];
+   
+    $pass = 'xd';
+    $email = 'brunomateoc7@gmail.com';
 
-    //$verify = password_verify($password, $usuario['pass']);
-
-    $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
-    $password_segura = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 4]);
-    $resultSql = $mysql->query($sql);
-
-    if($mysql->affected_rows <= 0) {
-      
-        echo "Error: Credenciales no regitradas";
-
-    } else{
-       
-
-        
-        $querry = "UPDATE tb_usuario set pass = '".$password_segura."' where usuario = '".$user."'";
-        $result= $mysql->query($querry);
-    
-        if (!$mysql->affected_rows == 1){
-        
-                echo "No se pudo actualzar la contraseña";
-        }else {
 
             echo "Actualizacion  exitosa";
             ob_start();
@@ -53,11 +33,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             </html>
         <?php
         $text = ob_get_clean();
-        $email = $user;
         
         
         
-         
         
         require_once '../Web/Asset/PHPMailer/src/PHPMailer.php';
         require_once '../Web/Asset/PHPMailer/src/Exception.php';
@@ -93,5 +71,5 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         } catch (Exception $e) {
             //echo "error: {$mail->ErrorInfo}";
         }
-    }
-}
+
+        
