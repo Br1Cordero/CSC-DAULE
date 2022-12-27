@@ -4,23 +4,22 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     
     require_once './conexion.php';
 
-    $user = trim($_POST['user']);
+    $user = $_POST['user'];
     $pass = $_POST['pass'];
-
+    
 
 
     $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
-   
+    echo $sql;
    
     $resultSql = $mysql->query($sql);
 
-    if($mysql->num_rows> 0){
+    if($mysql->affected_rows == 1){
 
-       
         $usuario = $resultSql->fetch_assoc();
         
        
-        $verify = password_verify($pass, $usuario['pass']);
+        $verify = password_verify($pass, $usuario['Pass']);
          
     
               
