@@ -1,0 +1,99 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+}
+
+*{
+
+    --shadox:  4px 7px 3px rgba(0, 0, 0, .5),inset 0 1px 2px rgba(250, 250, 250, .8);
+    --amarillo: rgba(249, 253, 5, 0.938);
+    --azul: #010080;
+    transition: all 0.5s;
+}
+
+.login{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../Assets/Image/T1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 8px 3px rgba(0, 0, 0, .5),inset 0 1px 2px rgba(250, 250, 250, .8);
+}
+
+.login__form{
+    width: 40%;
+    min-width: 450px;
+    height: 450px;            
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 7px 3px rgba(0, 0, 0, .5),inset 0 1px 2px rgba(250, 250, 250, .8);
+    background: rgba(01, 02, 01, .2);
+    border-radius: calc(10% + 7px);
+}
+
+.login__form h2{
+    text-shadow: 1.8px .5px 2px #222;
+    color: var(--amarillo);
+    text-transform: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+.form__input {
+    height: 16.66%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input input{
+    width: 100%;
+    height: 35%;
+    border: none;
+    border-bottom: 2px solid var(--azul);
+    padding: 15px 20px;
+    background-color: transparent;
+    color: #fff;
+}
+
+
+.form__input input::placeholder, textarea::placeholder{
+    text-align: center;
+    color: #ccc;
+}
+
+.form__input input:focus, textarea:focus{
+    outline: none;
+    background: linear-gradient(to  top, transparent, rgb(125, 116, 116));
+    border-bottom-color: var(--amarillo);
+}
+.form__input button {
+    cursor: pointer;
+    padding: 4px 20px;
+    width: 45%;
+    text-align: center;
+    font-weight: 800;
+    background-color:  var(--amarillo);
+    border-radius: 9px;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, .2);
+    letter-spacing: 1.3px;
+    transition: all 0.5s;
+}
+
+.form__input button:hover{
+    color: var(--amarillo);
+    border-color: var(--azul);
+    background-color: var(--azul);
+    outline: none;
+    border-color: var(--amarillo);
+    transition: all 0.5s;
+
+}

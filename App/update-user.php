@@ -7,7 +7,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
 
-    //$verify = password_verify($password, $usuario['pass']);
+    //$verify   = password_verify($password, $usuario['pass']);
 
     $sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
     $password_segura = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 4]);
@@ -32,7 +32,18 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             echo "Actualizacion  exitosa";
             ob_start();
         ?>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        </head>
         <body>
+            
+        </body>
+        </html>
                 
             <table>
                 <tr>
@@ -50,14 +61,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
                 
         </body>
             
-            </html>
+         </html>
         <?php
-        $text = ob_get_clean();
+        $text = utf8_encode(ob_get_clean());
         $email = $user;
-        
-        
-        
-         
         
         require_once '../Web/Asset/PHPMailer/src/PHPMailer.php';
         require_once '../Web/Asset/PHPMailer/src/Exception.php';
@@ -92,6 +99,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             
         } catch (Exception $e) {
             //echo "error: {$mail->ErrorInfo}";
+            }
         }
     }
 }

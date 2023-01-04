@@ -17,9 +17,20 @@
   </html>
 <?php
 $pass = $_POST['pass'];
+
+require_once 'conexion.php';
+$user = "brunomateoc7@gmail.com";
+$sql = "SELECT * FROM  tb_usuario WHERE usuario = '".$user."';";
+echo $sql;
+
+$resultSql = $mysql->query($sql);
+
+    $usuario = $resultSql->fetch_assoc();
+    echo $usuario['Pass'];
+
 $pss = "hola";
-$password_segura = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 4]);
-$verify = password_verify($pss, $password_segura);
+
+$verify = password_verify( $pass, $usuario['Pass']);
 echo "El pass es: $pass<br>";
-echo "El segura es: $password_segura <br>";
+//echo "El segura es: $password_segura <br>";
 echo "verificaciones: $verify<br>";

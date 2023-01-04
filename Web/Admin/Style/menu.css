@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "Poppins";
+    src: url(./poppins.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "poppins";
+    transition: all 0.7s ;
+}
+body{
+    background: #fff;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+header {
+    width: 80%;
+    height: 90px;
+    background: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.3), 0px 3px 7px rgba(0,0,0,0.3), 0px 0px 1px #FFFFFF inset, 0px -3px 2px rgba(0,0,0,0.25) inset; 
+
+
+}
+.logo {
+    width: 120px;
+    height: 90%;
+    align-self: flex-start;
+}
+#nav_cheack:checked ~ nav{
+    left: 0;
+}
+nav .logo {
+    display: none;
+}
+nav ul {
+    display: flex;
+}
+nav ul li a {
+    color: #212526;
+    display: block;
+    margin: 0 1px;
+    font-weight: 600;
+    padding: 9px 19px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+nav ul li a:hover {
+    background: #f6f4ff;
+}
+nav ul li a.active {
+    background: #675cff;
+    color: #fff;
+}
+.hamburger {
+   /* display: none;*/
+    width: 45px;
+    height: auto;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 0.2s;
+    transform: 0.2s;
+}
+.hamburger:hover {
+    background: #f6f4ff;
+}
+.hamburger div {
+    width: 100%;
+    height: 100%;
+    margin: 6px 0;
+    background: transparent;
+    position: relative;
+}
+
+@media only screen and (max-width: 1100px) {
+    header {
+        width: 90%;
+        padding: 0 20px;
+    }
+    nav {
+        position: absolute;
+        left: -300px;
+        top: 0;
+        z-index: 999;
+        width: 280px;
+        height: 100vh;
+        background-color: #fefefe;
+        transform: 0.2s;
+        box-shadow: 2px 0 20px 0 rgba(0,0,0,0.05);
+    }
+    nav .logo {
+        display: block;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+    }
+    nav ul {
+        display: block;
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+    nav ul li a {
+        margin-bottom: 5px;
+        padding: 10px 15xp;
+        border-radius: 5px;
+    }
+    .hamburger{
+        display: block;
+    }
+}
+
+
+.bars__menu{
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.bars__menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #200669;
+    margin-top: 6px;
+    transform-origin: 0px 100%;
+    transition: all 300ms;
+}
+
+.activeline1__bars-menu{
+    transform: rotate(45deg) translate(-2px, 1px); 
+}
+
+.activeline2__bars-menu{
+    opacity: 0;
+    margin-left: -30px; 
+}
+
+.activeline3__bars-menu{
+    transform: rotate(-45deg) translate(-4px, 2px);
+}
